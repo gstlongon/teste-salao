@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(cors()) 
 
 //VARIABLES
-app.set('port', 3000)
+app.set('port', 8080)
 
 //ROTAS
 app.use('/salao',require('./src/routes/salao.routes'))

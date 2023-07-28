@@ -14,11 +14,6 @@ const salao = new Schema({
         type: String,
         required: [true, 'Senha é obrigatório.'],
     },
-    telefone: {
-        type: String,
-        default: null,
-    },
-
 })
 
 module.exports = mongoose.model('Salao', salao)

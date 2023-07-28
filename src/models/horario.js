@@ -7,15 +7,11 @@ const horario = new Schema({
         ref: 'Colaborador',
         required: true,
     },
-    dias: {
-        type: [Number],
-        required: true,
-    },
-    inicio: {
+    start: {
         type: Date,
         required: true,
     },
-    fim: {
+    end: {
         type: Date,
         required: true,
     },

@@ -10,12 +10,6 @@ const servico = new Schema({
         type: Number,
         required: true,
     }, 
-    descricao: {
-        type: String,
-        required: true,
-    },
-
-
 })
 
 module.exports = mongoose.model('Servico', servico)

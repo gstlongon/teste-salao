@@ -5,7 +5,6 @@ const horario = new Schema({
     colaboradorId: {
         type: mongoose.Types.ObjectId,
         ref: 'Colaborador',
-        required: true,
     },
     start: {
         type: Date,

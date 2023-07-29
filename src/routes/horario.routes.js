@@ -5,8 +5,8 @@ const Horario = require('../models/horario');
 
 router.post('/', async (req, res) => {
   try {
-    const start = moment(req.body.start).toISOString();
-    const end = moment(req.body.end).toISOString();
+    const start = moment(req.body.start).format(); 
+    const end = moment(req.body.end).format(); 
 
     const novoEvento = new Horario({
       start: start,

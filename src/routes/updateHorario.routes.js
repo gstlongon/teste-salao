@@ -3,19 +3,21 @@ const moment = require('moment');
 const router = express.Router();
 const Horario = require('../models/horario');
 
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
-    const start = moment(req.body.start).format(); 
-    const end = moment(req.body.end).format(); 
+    const start = moment(req.body.start).toDate();
+    const end = moment(req.body.end).toDate();
 
-    const novoEvento = new Horario({
-        title: req.body.title,  
+    const horario = await Horario.findByIdAndUpdate(
+      req.params.id, 
+      {
+        title: req.body.title,
         start: start,
         end: end,
         description: req.body.description
-    });
-
-    const horario = await novoEvento.save();
+      },
+      { new: true } 
+    );
 
     res.json({ horario });
   } catch (err) {

@@ -6,9 +6,9 @@ const Colaborador = require('../models/colaborador');
 
 router.get('/', async (req, res) => {
     try {
-        const events = await Horario.find();
+        const findEvents = await Horario.find();
 
-        const eventsLimpos = events.map(event => {
+        const events = findEvents.map(event => {
             return {
                 _id: event._id,
                 start: event.start,
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     const colaboradores = await Colaborador.find({}, { _id: 1, nome: 1, email: 1, telefone: 1 });
 
     res.json({
-      eventsLimpos,
+      events,
       colaboradores: colaboradores
     });
   } catch (err) {

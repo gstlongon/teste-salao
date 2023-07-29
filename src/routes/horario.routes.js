@@ -1,20 +1,24 @@
-const express = require('express')
+const express = require('express');
 const moment = require('moment');
-const router = express.Router()
-const Horario = require('../models/horario')
-const Colaborador = require('../models/colaborador')
-
-
+const router = express.Router();
+const Horario = require('../models/horario');
 
 router.post('/', async (req, res) => {
-    try {
-        const horario = await new Horario(req.body).save()
-        res.json({ horario })
-    } catch (err) {
-        res.json({ error: true, message: err.message })
-    }
-})
+  try {
+    const start = moment(req.body.start).toISOString();
+    const end = moment(req.body.end).toISOString();
 
+    const novoEvento = new Horario({
+      start: start,
+      end: end,
+    });
 
+    const horario = await novoEvento.save();
 
-module.exports = router
+    res.json({ horario });
+  } catch (err) {
+    res.json({ error: true, message: err.message });
+  }
+});
+
+module.exports = router;

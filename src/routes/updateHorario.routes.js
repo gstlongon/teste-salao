@@ -3,7 +3,7 @@ const moment = require('moment');
 const router = express.Router();
 const Horario = require('../models/horario');
 
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
   try {
     const start = moment(req.body.start).toDate();
     const end = moment(req.body.end).toDate();

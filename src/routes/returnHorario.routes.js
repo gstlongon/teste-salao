@@ -5,20 +5,21 @@ const Horario = require('../models/horario');
 const Colaborador = require('../models/colaborador');
 
 router.get('/', async (req, res) => {
-  try {
-    const events = await Horario.find({
-      start: {
-        $gte: moment(req.query.start).toDate()
-      },
-      end: {
-        $lte: moment(req.query.end).toDate()
-      }
-    });
+    try {
+        const events = await Horario.find();
+
+        const eventsLimpos = events.map(event => {
+            return {
+                _id: event._id,
+                start: event.start,
+                end: event.end
+            };
+        });
 
     const colaboradores = await Colaborador.find({}, { _id: 1, nome: 1, email: 1, telefone: 1 });
 
     res.json({
-      events: events,
+      eventsLimpos,
       colaboradores: colaboradores
     });
   } catch (err) {

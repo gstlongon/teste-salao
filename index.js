@@ -22,7 +22,7 @@ app.use('/return-colaborador',require('./src/routes/returnColaborador.routes'))
 app.use('/return-servico',require('./src/routes/returnServico.routes'))
 app.use('/return-salao',require('./src/routes/returnSalao.routes'))
 app.use('/return-horario',require('./src/routes/returnHorario.routes'))
-app.use('/updateHorario',require('./src/routes/returnHorario.routes'))
+app.use('/updateHorario',require('./src/routes/updateHorario.routes'))
 
 
 

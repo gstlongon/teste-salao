@@ -9,8 +9,10 @@ router.post('/', async (req, res) => {
     const end = moment(req.body.end).format(); 
 
     const novoEvento = new Horario({
-      start: start,
-      end: end,
+        title: req.body.title,  
+        start: start,
+        end: end,
+        description: req.body.description
     });
 
     const horario = await novoEvento.save();

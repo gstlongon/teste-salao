@@ -11,8 +11,10 @@ router.get('/', async (req, res) => {
         const events = findEvents.map(event => {
             return {
                 _id: event._id,
+                title: event.title, 
                 start: event.start,
-                end: event.end
+                end: event.end,
+                description: event.description
             };
         });
 
